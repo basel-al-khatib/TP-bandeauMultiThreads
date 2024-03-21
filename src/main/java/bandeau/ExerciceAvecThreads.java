@@ -10,16 +10,19 @@ public class ExerciceAvecThreads {
     public void exemple() {
 
         Scenario s = makeScenario();
-        // On cree les bandeaux
-        Bandeau b1 = new Bandeau();
-        Bandeau b2 = new Bandeau();
-        Bandeau b3 = new Bandeau();
+
+        // On crée les bandeaux
+        MonBandeau b1 = new MonBandeau();
+        MonBandeau b2 = new MonBandeau();
+        MonBandeau b3 = new MonBandeau();
         System.out.println("CTRL-C pour terminer le programme");
         // On doit jouer le scénario en même temps sur les trois bandeaux
         s.playOn(b1);
+
         s.playOn(b2);
         s.playOn(b3);
         // On rejoue le scénario sur b1 quand le premier jeu est fini
+        s.addEffect(new Zoom("Je zoome", 50), 1);
         s.playOn(b1);
     }
 
